@@ -75,9 +75,9 @@
     <div>
       <img id="avatar-hero" class="avatar-lg" src="" alt="Avatar" style="display:none;margin-bottom:12px" />
       <span class="pill" data-i18n="hero.badge">Open to freelance</span>
-      <!-- остальной контент hero -->
+      <h1 id="headline">Junior Python Developer — Automation & Bots</h1>
+      <p class="lead" data-i18n="hero.lead">I build Telegram bots, scrapers, and small web apps (Flask). Fast delivery, clean code, friendly communication.</p>
     </div>
-    <!-- вторая колонка hero -->
   </section>
 
   <script>
@@ -99,8 +99,13 @@
     };
 
     const sel = document.getElementById('lang');
+
+    // Временный сброс старого ключа (удалить после проверки)
+    localStorage.removeItem('lang');
+
+    const LANG_KEY = 'lang_v2';
     const getInitialLang = () => {
-      const saved = localStorage.getItem('lang');
+      const saved = localStorage.getItem(LANG_KEY);
       if (saved && t[saved]) return saved;
       return 'en';
     };
@@ -109,18 +114,17 @@
     i18nApply(defaultLang);
     document.documentElement.setAttribute('lang', defaultLang);
     sel.addEventListener('change',()=>{
-      localStorage.setItem('lang', sel.value);
+      localStorage.setItem(LANG_KEY, sel.value);
       i18nApply(sel.value);
       document.documentElement.setAttribute('lang', sel.value);
     });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('brand-name').textContent = 'Vitalii B.';
     document.getElementById('footer-name').textContent = 'Vitalii B.';
     document.getElementById('resume-link').href = 'assets/resume.pdf';
 
-    const AVATAR_SRC = 'assets/avatar.png';
-    (()=>{
+    const AVATAR_SRC = './assets/avatar.png';
+    (function(){
       const test = new Image();
       test.onload = () => {
         const hero = document.getElementById('avatar-hero');
@@ -133,4 +137,5 @@
   </script>
 </body>
 </html>
+
 
