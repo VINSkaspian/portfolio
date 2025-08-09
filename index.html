@@ -73,43 +73,45 @@
 
   <main class="container">
     <!-- HERO -->
-    <section class="hero" id="home">
-      <div>
-        <img id="avatar-hero" class="avatar-lg" src="" alt="Avatar" style="display:none;margin-bottom:12px" />
-        <span class="pill" data-i18n="hero.badge">Open to freelance</span>
-        <h1 id="headline">Junior Python Developer — Automation & Bots</h1>
-        <p class="lead" data-i18n="hero.lead">I build Telegram bots, scrapers, and small web apps (Flask). Fast delivery, clean code, friendly communication.</p>
-        <div class="row">
-          <a class="btn" href="#projects" data-i18n="hero.cta.viewProjects">View projects</a>
-          <a class="btn ghost" id="resume-link" href="#" download data-i18n="hero.cta.resume">Download CV</a>
-        </div>
-        <div class="skills" style="margin-top:18px">
-          <span class="pill">Python</span>
-          <span class="pill">Flask</span>
-          <span class="pill">Telegram Bot API</span>
-          <span class="pill">Requests/HTTPX</span>
-          <span class="pill">Pandas</span>
-          <span class="pill">BeautifulSoup / lxml</span>
-          <span class="pill">Git & GitHub</span>
-        </div>
-      </div>
-      <div class="hero-card grid">
-        <div class="card">
-          <img alt="Telegram bot" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop"/>
-          <div class="content">
-            <strong data-i18n="cards.bot.title">Smart Reminder Bot</strong>
-            <p class="lead" style="margin:6px 0 0" data-i18n="cards.bot.desc">Daily reminders by schedule. Commands, inline keyboards, JSON storage.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img alt="Web scraping" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop"/>
-          <div class="content">
-            <strong data-i18n="cards.scraper.title">News Scraper</strong>
-            <p class="lead" style="margin:6px 0 0" data-i18n="cards.scraper.desc">Collects articles to CSV/SQLite. Rotating headers, retry, simple CLI.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section contact" id="contact">
+  <div class="card" style="padding:18px">
+    <h2 data-i18n="contact.title">Contact</h2>
+
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:12px">
+      <a class="btn"
+         href="mailto:vinskaspianwork@gmail.com?subject=New%20freelance%20inquiry"
+         data-i18n="contact.buttons.email">Email</a>
+
+      <a class="btn ghost"
+         href="https://t.me/VinsentLumen"
+         target="_blank" rel="noopener"
+         data-i18n="contact.buttons.telegram">Telegram</a>
+
+      <a class="btn ghost"
+         href="https://www.fiverr.com/users/vinskaspian/seller_dashboard"
+         target="_blank" rel="noopener"
+         data-i18n="contact.buttons.fiverr">Fiverr</a>
+
+      <a class="btn ghost"
+         href="https://www.freelancer.com/u/VinsKaspian"
+         target="_blank" rel="noopener"
+         data-i18n="contact.buttons.freelancer">Freelancer</a>
+
+      <a class="btn ghost"
+         href="assets/resume.pdf"
+         download="Vitalii_B_CV.pdf"
+         data-i18n="contact.buttons.downloadCV">Download CV</a>
+    </div>
+
+    <p class="lead" data-i18n="contact.text">DM me for freelance work or collaborations.</p>
+  </div>
+
+  <div class="card" style="padding:18px">
+    <h2 data-i18n="cta.title">Need something automated?</h2>
+    <p class="lead" data-i18n="cta.text">Tell me your routine and I'll suggest a bot or script to save you hours each week.</p>
+    <a class="btn" href="#" data-i18n="cta.button">Get a free estimate</a>
+  </div>
+</section>
 
     <!-- ABOUT -->
     <section class="section" id="about">
@@ -232,7 +234,18 @@
         p2:{title:'News Aggregator Scraper',desc:'Fetches headlines from several sites, normalizes to CSV, simple CLI to filter by keyword and date.'},
         p3:{title:'Flask Notes App',desc:'Create, tag and search notes. JSON import/export. Minimal UI.'},
         common:{liveDemo:'Live demo',viewCode:'View code'},
-        contact:{title:'Contact',text:'DM me for freelance work or collaborations.'},
+        contact:{
+                   title:'Contact',
+                   text:'DM me for freelance work or collaborations.',
+                   buttons:{
+                     email:'Email',
+                     telegram:'Telegram',
+                     fiverr:'Fiverr',
+                     freelancer:'Freelancer',
+                     downloadCV:'Download CV'
+                   }
+                  },
+
         cta:{title:'Need something automated?',text:'Tell me your routine and I\'ll suggest a bot or script to save you hours each week.',button:'Get a free estimate'},
         footer:{rights:'All rights reserved.'}
       },
@@ -247,7 +260,18 @@
         p2:{title:'Агрегатор новостей',desc:'Тянет заголовки с нескольких сайтов, складывает в CSV, есть CLI‑фильтр по ключевому слову и дате.'},
         p3:{title:'Приложение заметок на Flask',desc:'Создание, теги и поиск заметок. Импорт/экспорт JSON. Минималистичный UI.'},
         common:{liveDemo:'Демо',viewCode:'Код'},
-        contact:{title:'Контакты',text:'Пишите по фрилансу и сотрудничеству.'},
+        contact:{
+                   title:'Контакты',
+                   text:'Пишите по фрилансу и сотрудничеству.',
+                   buttons:{
+                     email:'Почта',
+                     telegram:'Телеграм',
+                     fiverr:'Fiverr',
+                     freelancer:'Freelancer',
+                     downloadCV:'Скачать резюме'
+                   }
+                  },
+
         cta:{title:'Нужно что‑то автоматизировать?',text:'Опишите вашу рутину — предложу бота или скрипт, который сэкономит часы каждую неделю.',button:'Получить оценку'},
         footer:{rights:'Все права защищены.'}
       },
@@ -262,7 +286,18 @@
         p2:{title:'Агрегатор новин',desc:'Тягне заголовки з кількох сайтів, зберігає у CSV, є CLI‑фільтр за ключовим словом і датою.'},
         p3:{title:'Додаток нотаток на Flask',desc:'Створення, теги й пошук нотаток. JSON імпорт/експорт. Мінімалістичний UI.'},
         common:{liveDemo:'Демо',viewCode:'Код'},
-        contact:{title:'Контакти',text:'Пишіть щодо фрилансу або співпраці.'},
+        contact:{
+                   title:'Контакти',
+                   text:'Пишіть щодо фрилансу або співпраці.',
+                   buttons:{
+                     email:'Пошта',
+                     telegram:'Телеграм',
+                     fiverr:'Fiverr',
+                     freelancer:'Freelancer',
+                     downloadCV:'Завантажити резюме'
+                   }
+                  },
+
         cta:{title:'Потрібна автоматизація?',text:'Опишіть вашу рутину — запропоную бота або скрипт, що щотижня економитиме вам час.',button:'Отримати оцінку'},
         footer:{rights:'Всі права захищені.'}
       },
@@ -277,7 +312,18 @@
         p2:{title:"Agrégateur d'actualités",desc:'Récupère les titres de plusieurs sites, normalise en CSV, CLI pour filtrer par mot‑clé et date.'},
         p3:{title:'Appli de notes Flask',desc:'Créer, taguer et rechercher des notes. Import/export JSON.'},
         common:{liveDemo:'Démo',viewCode:'Code'},
-        contact:{title:'Contact',text:'Écrivez‑moi pour des missions freelance ou des collaborations.'},
+        contact:{
+                   title:'Контакти',
+                   text:'Пишіть щодо фрилансу або співпраці.',
+                   buttons:{
+                     email:'Пошта',
+                     telegram:'Телеграм',
+                     fiverr:'Fiverr',
+                     freelancer:'Freelancer',
+                     downloadCV:'Завантажити резюме'
+                   }
+                  },
+
         cta:{title:'Besoin d\'automatiser ?',text:"Décrivez votre routine — je proposerai un bot ou script pour gagner des heures chaque semaine.",button:'Devis gratuit'},
         footer:{rights:'Tous droits réservés.'}
       }
@@ -337,6 +383,11 @@
   </script>
 </body>
 </html>
+
+
+
+
+
 
 
 
