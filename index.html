@@ -20,6 +20,8 @@
     nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800}
     .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--primary)}
+    .avatar-mini{width:28px;height:28px;border-radius:999px;object-fit:cover;border:1px solid var(--border)}
+    .avatar-lg{width:96px;height:96px;border-radius:999px;object-fit:cover;border:2px solid var(--border);box-shadow:0 8px 30px rgba(2,6,23,.08)}
     .nav-links{display:flex;gap:18px;align-items:center}
     .btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;border:0;border-radius:12px;padding:10px 14px;font-weight:600;box-shadow:0 6px 18px rgba(37,99,235,.25);transition:.2s}
     .btn:hover{transform:translateY(-1px)}
@@ -41,7 +43,6 @@
     .row{display:flex;gap:10px;flex-wrap:wrap}
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
-    /* responsive */
     @media (max-width:900px){.hero{grid-template-columns:1fr}.contact{grid-template-columns:1fr}}
   </style>
 </head>
@@ -49,7 +50,11 @@
   <header>
     <div class="container">
       <nav>
-        <div class="brand"><span class="dot"></span> <span id="brand-name">Vins Kaspian</span></div>
+        <div class="brand">
+          <span class="dot"></span>
+          <img id="avatar-mini" class="avatar-mini" src="" alt="Avatar" style="display:none" />
+          <span id="brand-name">Vins Kaspian</span>
+        </div>
         <div class="nav-links">
           <a href="#about" data-i18n="nav.about">About</a>
           <a href="#skills" data-i18n="nav.skills">Skills</a>
@@ -66,216 +71,17 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div>
-        <span class="pill" data-i18n="hero.badge">Open to freelance</span>
-        <h1 id="headline">Junior Python Developer — Automation & Bots</h1>
-        <p class="lead" data-i18n="hero.lead">I build Telegram bots, scrapers, and small web apps (Flask). Fast delivery, clean code, friendly communication.</p>
-        <div class="row">
-          <a class="btn" href="#projects" data-i18n="hero.cta.viewProjects">View projects</a>
-          <a class="btn ghost" id="resume-link" href="#" download data-i18n="hero.cta.resume">Download CV</a>
-        </div>
-        <div class="skills" style="margin-top:18px">
-          <span class="pill">Python</span>
-          <span class="pill">Flask</span>
-          <span class="pill">Telegram Bot API</span>
-          <span class="pill">Requests/HTTPX</span>
-          <span class="pill">Pandas</span>
-          <span class="pill">BeautifulSoup / lxml</span>
-          <span class="pill">Git & GitHub</span>
-        </div>
-      </div>
-      <div class="hero-card grid">
-        <div class="card">
-          <img alt="Telegram bot" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop"/>
-          <div class="content">
-            <strong data-i18n="cards.bot.title">Smart Reminder Bot</strong>
-            <p class="lead" style="margin:6px 0 0" data-i18n="cards.bot.desc">Daily reminders by schedule. Commands, inline keyboards, JSON storage.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img alt="Web scraping" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop"/>
-          <div class="content">
-            <strong data-i18n="cards.scraper.title">News Scraper</strong>
-            <p class="lead" style="margin:6px 0 0" data-i18n="cards.scraper.desc">Collects articles to CSV/SQLite. Rotating headers, retry, simple CLI.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <h2 data-i18n="about.title">About me</h2>
-      <p class="lead" data-i18n="about.text">
-        Hi! I'm Vitalii (Vins). I study software development and focus on Python automation. I like clear structure, tests, and small, helpful tools.
-      </p>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <h2 data-i18n="skills.title">Skills</h2>
-      <div class="skills">
-        <span class="pill">Python</span>
-        <span class="pill">Flask</span>
-        <span class="pill">FastAPI (basic)</span>
-        <span class="pill">SQLite / PostgreSQL (basic)</span>
-        <span class="pill">Pandas</span>
-        <span class="pill">Selenium (basic)</span>
-        <span class="pill">Unit tests</span>
-        <span class="pill">GitHub Actions (basic)</span>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <h2 data-i18n="projects.title">Projects</h2>
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-        <!-- Project 1 -->
-        <article class="card">
-          <img alt="Reminder Bot" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" />
-          <div class="content">
-            <h3 data-i18n="p1.title">Telegram Reminder Bot</h3>
-            <p data-i18n="p1.desc">Schedules daily/weekly reminders, supports time zones, stores data in JSON/SQLite.</p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">python-telegram-bot</span>
-              <span class="tag">SQLite</span>
-            </div>
-            <div class="row" style="margin-top:10px">
-              <a class="btn" href="#" data-i18n="common.liveDemo">Live demo</a>
-              <a class="btn ghost" href="#" data-i18n="common.viewCode">View code</a>
-            </div>
-          </div>
-        </article>
-        <!-- Project 2 -->
-        <article class="card">
-          <img alt="News Scraper" src="https://images.unsplash.com/photo-1535385793340-e3eda3d6c08f?q=80&w=1600&auto=format&fit=crop" />
-          <div class="content">
-            <h3 data-i18n="p2.title">News Aggregator Scraper</h3>
-            <p data-i18n="p2.desc">Fetches headlines from several sites, normalizes to CSV, simple CLI to filter by keyword and date.</p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Requests</span>
-              <span class="tag">BeautifulSoup</span>
-            </div>
-            <div class="row" style="margin-top:10px">
-              <a class="btn" href="#" data-i18n="common.liveDemo">Live demo</a>
-              <a class="btn ghost" href="#" data-i18n="common.viewCode">View code</a>
-            </div>
-          </div>
-        </article>
-        <!-- Project 3 -->
-        <article class="card">
-          <img alt="Flask Notes" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" />
-          <div class="content">
-            <h3 data-i18n="p3.title">Flask Notes App</h3>
-            <p data-i18n="p3.desc">Create, tag and search notes. JSON import/export. Minimal UI.</p>
-            <div class="tags">
-              <span class="tag">Flask</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">HTML/CSS</span>
-            </div>
-            <div class="row" style="margin-top:10px">
-              <a class="btn" href="#" data-i18n="common.liveDemo">Live demo</a>
-              <a class="btn ghost" href="#" data-i18n="common.viewCode">View code</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-      <div class="card" style="padding:18px">
-        <h2 data-i18n="contact.title">Contact</h2>
-        <p class="lead" data-i18n="contact.text">DM me for freelance work or collaborations.</p>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
-          <a class="btn" href="mailto:vitalii@example.com">Email</a>
-          <a class="btn ghost" href="https://t.me/your_username" target="_blank" rel="noopener">Telegram</a>
-          <a class="btn ghost" href="https://www.fiverr.com/vinskaspian" target="_blank" rel="noopener">Fiverr</a>
-          <a class="btn ghost" href="https://www.freelancer.com/u/VinsKaspian" target="_blank" rel="noopener">Freelancer</a>
-        </div>
-      </div>
-      <div class="card" style="padding:18px">
-        <h2 data-i18n="cta.title">Need something automated?</h2>
-        <p class="lead" data-i18n="cta.text">Tell me your routine and I'll suggest a bot or script to save you hours each week.</p>
-        <a class="btn" href="#" data-i18n="cta.button">Get a free estimate</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © <span id="year"></span> <span id="footer-name">Vins Kaspian</span>. <span data-i18n="footer.rights">All rights reserved.</span>
+  <section class="hero" id="home">
+    <div>
+      <img id="avatar-hero" class="avatar-lg" src="" alt="Avatar" style="display:none;margin-bottom:12px" />
+      <span class="pill" data-i18n="hero.badge">Open to freelance</span>
+      <!-- остальной контент hero -->
     </div>
-  </footer>
+    <!-- вторая колонка hero -->
+  </section>
 
   <script>
-    // Simple i18n (EN, RU, UA, FR)
-    const t = {
-      en:{
-        nav:{about:'About',skills:'Skills',projects:'Projects',contact:'Contact'},
-        hero:{badge:'Open to freelance',lead:'I build Telegram bots, scrapers, and small web apps (Flask). Fast delivery, clean code, friendly communication.',cta:{viewProjects:'View projects',resume:'Download CV'}},
-        cards:{bot:{title:'Smart Reminder Bot',desc:'Daily reminders by schedule. Commands, inline keyboards, JSON storage.'},scraper:{title:'News Scraper',desc:'Collects articles to CSV/SQLite. Rotating headers, retry, simple CLI.'}},
-        about:{title:'About me',text:"Hi! I'm Vitalii (Vins). I study software development and focus on Python automation. I like clear structure, tests, and small, helpful tools."},
-        skills:{title:'Skills'},
-        projects:{title:'Projects'},
-        p1:{title:'Telegram Reminder Bot',desc:'Schedules daily/weekly reminders, supports time zones, stores data in JSON/SQLite.'},
-        p2:{title:'News Aggregator Scraper',desc:'Fetches headlines from several sites, normalizes to CSV, simple CLI to filter by keyword and date.'},
-        p3:{title:'Flask Notes App',desc:'Create, tag and search notes. JSON import/export. Minimal UI.'},
-        common:{liveDemo:'Live demo',viewCode:'View code'},
-        contact:{title:'Contact',text:'DM me for freelance work or collaborations.'},
-        cta:{title:'Need something automated?',text:'Tell me your routine and I\'ll suggest a bot or script to save you hours each week.',button:'Get a free estimate'},
-        footer:{rights:'All rights reserved.'}
-      },
-      ru:{
-        nav:{about:'Обо мне',skills:'Навыки',projects:'Проекты',contact:'Контакты'},
-        hero:{badge:'Открыт к фрилансу',lead:'Делаю Telegram‑ботов, парсеры и небольшие веб‑приложения (Flask). Быстро, аккуратно, на связи.',cta:{viewProjects:'Смотреть проекты',resume:'Скачать резюме'}},
-        cards:{bot:{title:'Умный бот‑напоминалка',desc:'Ежедневные напоминания по расписанию. Команды, inline‑клавиатуры, JSON‑хранилище.'},scraper:{title:'Скрапер новостей',desc:'Собирает статьи в CSV/SQLite. Ротация заголовков, повторы, простой CLI.'}},
-        about:{title:'Обо мне',text:'Привет! Я Виталий (Vins). Учусь на разработчика и фокусируюсь на Python‑автоматизации. Люблю аккуратную структуру, тесты и полезные утилиты.'},
-        skills:{title:'Навыки'},
-        projects:{title:'Проекты'},
-        p1:{title:'Telegram‑бот напоминаний',desc:'Планирует ежедневные/еженедельные напоминания, поддерживает часовые пояса, хранит данные в JSON/SQLite.'},
-        p2:{title:'Агрегатор новостей',desc:'Тянет заголовки с нескольких сайтов, складывает в CSV, есть CLI‑фильтр по ключевому слову и дате.'},
-        p3:{title:'Приложение заметок на Flask',desc:'Создание, теги и поиск заметок. Импорт/экспорт JSON. Минималистичный UI.'},
-        common:{liveDemo:'Демо',viewCode:'Код'},
-        contact:{title:'Контакты',text:'Пишите по фрилансу и сотрудничеству.'},
-        cta:{title:'Нужно что‑то автоматизировать?',text:'Опишите вашу рутину — предложу бота или скрипт, который сэкономит часы каждую неделю.',button:'Получить оценку'},
-        footer:{rights:'Все права защищены.'}
-      },
-      uk:{
-        nav:{about:'Про мене',skills:'Навички',projects:'Проєкти',contact:'Контакти'},
-        hero:{badge:'Відкритий до фрилансу',lead:'Роблю Telegram‑ботів, скраперів і невеликі веб‑додатки (Flask). Швидко, акуратно, на зв’язку.',cta:{viewProjects:'Переглянути проєкти',resume:'Завантажити резюме'}},
-        cards:{bot:{title:'Розумний бот‑нагадувач',desc:'Щоденні нагадування за розкладом. Команди, inline‑клавіатури, JSON‑сховище.'},scraper:{title:'Скрапер новин',desc:'Збирає статті в CSV/SQLite. Ротація заголовків, повтори, простий CLI.'}},
-        about:{title:'Про мене',text:'Привіт! Я Віталій (Vins). Вивчаю розробку й фокусуюсь на Python‑автоматизації. Люблю чітку структуру, тести і корисні утиліти.'},
-        skills:{title:'Навички'},
-        projects:{title:'Проєкти'},
-        p1:{title:'Telegram‑бот нагадувань',desc:'Планує щоденні/щотижневі нагадування, підтримує часові пояси, зберігає дані в JSON/SQLite.'},
-        p2:{title:'Агрегатор новин',desc:'Тягне заголовки з кількох сайтів, зберігає у CSV, є CLI‑фільтр за ключовим словом і датою.'},
-        p3:{title:'Додаток нотаток на Flask',desc:'Створення, теги й пошук нотаток. JSON імпорт/експорт. Мінімалістичний UI.'},
-        common:{liveDemo:'Демо',viewCode:'Код'},
-        contact:{title:'Контакти',text:'Пишіть щодо фрилансу або співпраці.'},
-        cta:{title:'Потрібна автоматизація?',text:'Опишіть вашу рутину — запропоную бота або скрипт, що щотижня економитиме вам час.',button:'Отримати оцінку'},
-        footer:{rights:'Всі права захищені.'}
-      },
-      fr:{
-        nav:{about:'À propos',skills:'Compétences',projects:'Projets',contact:'Contact'},
-        hero:{badge:'Ouvert au freelance',lead:"Je crée des bots Telegram, des scrapers et de petites applis web (Flask). Livraison rapide, code propre, communication fluide.",cta:{viewProjects:'Voir les projets',resume:'Télécharger le CV'}},
-        cards:{bot:{title:'Bot de rappels',desc:'Rappels quotidiens planifiés. Commandes, claviers inline, stockage JSON.'},scraper:{title:'Scraper d’actualités',desc:'Collecte des articles vers CSV/SQLite. En‑têtes tournants, retry, CLI simple.'}},
-        about:{title:'À propos de moi',text:"Salut ! Je suis Vitalii (Vins). J'étudie le développement logiciel et me concentre sur l'automatisation en Python."},
-        skills:{title:'Compétences'},
-        projects:{title:'Projets'},
-        p1:{title:'Bot Telegram de rappels',desc:'Planifie des rappels quotidiens/hebdomadaires, gère les fuseaux horaires, stocke en JSON/SQLite.'},
-        p2:{title:"Agrégateur d'actualités",desc:'Récupère les titres de plusieurs sites, normalise en CSV, CLI pour filtrer par mot‑clé et date.'},
-        p3:{title:'Appli de notes Flask',desc:'Créer, taguer et rechercher des notes. Import/export JSON.'},
-        common:{liveDemo:'Démo',viewCode:'Code'},
-        contact:{title:'Contact',text:'Écrivez‑moi pour des missions freelance ou des collaborations.'},
-        cta:{title:'Besoin d\'automatiser ?',text:"Décrivez votre routine — je proposerai un bot ou script pour gagner des heures chaque semaine.",button:'Devis gratuit'},
-        footer:{rights:'Tous droits réservés.'}
-      }
-    };
+    const t = {/* ... объект переводов ... */};
 
     const i18nApply = (lang) => {
       const dict = t[lang] || t.en;
@@ -284,7 +90,6 @@
         let cur = dict; for(const key of path){ if(cur && key in cur){ cur = cur[key]; } }
         if(typeof cur === 'string'){ el.textContent = cur; }
       });
-      // Headline stays English by default; customize if needed
       document.getElementById('headline').textContent = {
         en:'Junior Python Developer — Automation & Bots',
         ru:'Junior Python Developer — Автоматизация и боты',
@@ -293,16 +98,38 @@
       }[lang] || 'Junior Python Developer — Automation & Bots';
     };
 
-    // Init
     const sel = document.getElementById('lang');
-    sel.addEventListener('change',()=>i18nApply(sel.value));
-    i18nApply('ru');
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const getInitialLang = () => {
+      const saved = localStorage.getItem('lang');
+      if (saved && t[saved]) return saved;
+      return 'en';
+    };
+    const defaultLang = getInitialLang();
+    sel.value = defaultLang;
+    i18nApply(defaultLang);
+    document.documentElement.setAttribute('lang', defaultLang);
+    sel.addEventListener('change',()=>{
+      localStorage.setItem('lang', sel.value);
+      i18nApply(sel.value);
+      document.documentElement.setAttribute('lang', sel.value);
+    });
 
-    // Replace placeholders — set these to your real links
+    document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('brand-name').textContent = 'Vitalii B.';
     document.getElementById('footer-name').textContent = 'Vitalii B.';
-    document.getElementById('resume-link').href = 'assets/resume.pdf'; // add your file later
+    document.getElementById('resume-link').href = 'assets/resume.pdf';
+
+    const AVATAR_SRC = 'assets/avatar.png';
+    (()=>{
+      const test = new Image();
+      test.onload = () => {
+        const hero = document.getElementById('avatar-hero');
+        const mini = document.getElementById('avatar-mini');
+        if (hero) { hero.src = AVATAR_SRC; hero.style.display = 'inline-block'; }
+        if (mini) { mini.src = AVATAR_SRC; mini.style.display = 'inline-block'; }
+      };
+      test.src = AVATAR_SRC;
+    })();
   </script>
 </body>
 </html>
